@@ -10,17 +10,18 @@ const initalFormValues = {
   role: '',
 }
 
-const dummyTeam = [
-  {
-    name: 'Dave',
-    email: 'dave@gmail.com',
-    role: 'backend engineer'
-  }
-]
+// Test
+// const dummyTeam = [
+//   {
+//     name: 'Dave',
+//     email: 'dave@gmail.com',
+//     role: 'backend engineer'
+//   }
+// ]
 
 function App() {
   // Initialize team members to empty array
-  const [teamMembers, setTeamMembers] = useState(dummyTeam);
+  const [teamMembers, setTeamMembers] = useState([]);
 
   const [formValues, setFormValues] = useState(initalFormValues);
 
@@ -36,13 +37,14 @@ function App() {
     }
 
     setTeamMembers(teamMembers.concat(newMember));
+    setFormValues(initalFormValues);
   }
 
   return (
     <div className="App">
       <header className="App-header">
         <Form update={updateForm} values={formValues} submit={submitForm} />
-        <div>
+        <div className='team-members'>
           {teamMembers.map(member => {
             return (<Member details={member} />)
           })}
