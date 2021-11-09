@@ -43,6 +43,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h1>Assemble Your Team!</h1>
         <Form update={updateForm} values={formValues} submit={submitForm} />
         <div className='team-members'>
           {teamMembers.map(member => {
