@@ -10,9 +10,17 @@ const initalFormValues = {
   role: '',
 }
 
+const dummyTeam = [
+  {
+    name: 'Dave',
+    email: 'dave@gmail.com',
+    role: 'backend engineer'
+  }
+]
+
 function App() {
   // Initialize team members to empty array
-  const [teamMembers, setTeamMembers] = useState([]);
+  const [teamMembers, setTeamMembers] = useState(dummyTeam);
 
   const [formValues, setFormValues] = useState(initalFormValues);
 

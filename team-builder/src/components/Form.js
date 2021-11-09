@@ -15,7 +15,7 @@ const Form = (props) => {
 
 
     return (
-        <form className='form-container'>
+        <form className='form-container' onSubmit={onSubmit}>
             <label>Name:
                 <input
                     type='text'
@@ -42,9 +42,10 @@ const Form = (props) => {
                     <option value='bum'>Bum</option>
                 </select>
             </label>
-            <div className='submit'>
-                <button disabled={!values.name || !values.email || !values.role} onClick={onSubmit}>Submit!</button>
-            </div>
+            <input
+                type='submit'
+                value='Add team member!'
+            />
         </form>
     )
 }

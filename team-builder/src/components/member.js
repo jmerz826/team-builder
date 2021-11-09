@@ -8,7 +8,9 @@ const Member = (props) => {
     }
     return (
         <div className='team-member'>
-            <h2></h2>
+            <h2>{details.name}</h2>
+            <h3>{details.email}</h3>
+            <h3>{details.role}</h3>
         </div>
     )
 }
