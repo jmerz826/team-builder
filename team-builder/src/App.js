@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import Form from './components/Form.js';
-import React, {useState} from 'react';
+import Form from './components/form.js';
+import React, { useState } from 'react';
+import Member from './components/member.js';
 
 const initalFormValues = {
   name: '',
@@ -32,7 +33,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Form update={updateForm} values={formValues} submit={ submitForm}/>
+        <Form update={updateForm} values={formValues} submit={submitForm} />
+        <div>
+          {teamMembers.map(member => {
+            return (<Member details={member} />)
+          })}
+        </div>
       </header>
     </div>
   );
