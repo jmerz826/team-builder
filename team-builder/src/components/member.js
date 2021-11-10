@@ -8,10 +8,14 @@ const MemberDiv = styled.div`
     align-items:center;
     justify-content: space-between;
     padding: 0 4%;
+    background-color: slateblue;
+    margin-top: 1%;
     
-    a{
-        color: white;
+    a {
+        text-decoration: none;
+        color:white;
     }
+    
 `
 
 const Member = (props) => {

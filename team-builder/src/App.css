@@ -40,3 +40,12 @@
 .team-members {
   width: 60%;
 }
+
+.team-members div:nth-of-type(even){
+  background-color: white;
+  color: #282c34;
+}
+
+.team-members div:nth-of-type(even) a{
+  color: #282c34;
+}
