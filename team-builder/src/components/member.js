@@ -10,16 +10,24 @@ const MemberDiv = styled.div`
     padding: 0 4%;
     background-color: slateblue;
     margin-top: 1%;
+    width:100%;
     
     a {
         text-decoration: none;
         color:white;
     }
-    
+
+    button{
+        border-radius:9999px;
+        padding:1.2%;
+        color:white;
+        background-color: black;
+        border:thin solid white;
+    }
 `
 
 const Member = (props) => {
-    const { details } = props;
+    const { details, setMemberToEdit } = props;
 
     if (!details) {
         return <h3>Assembling team members...</h3>
@@ -29,7 +37,7 @@ const Member = (props) => {
             <h2>{details.name}</h2>
             <h3>{details.role}</h3>
             <a href={`mailto:${details.email}`}>{details.email}</a>
-            
+            <button onClick={() => setMemberToEdit(details) }>Edit</button>
         </MemberDiv>
     )
 }

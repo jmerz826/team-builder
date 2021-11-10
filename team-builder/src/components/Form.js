@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Form = (props) => {
-    const { values, update, submit } = props;
+    const { values, update, submit, memberToEdit } = props;
 
     const onChange = evt => {
         const { name, value } = evt.target;

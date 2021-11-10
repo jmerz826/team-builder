@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Form from './components/form.js';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Member from './components/member.js';
 
 const initalFormValues = {
@@ -25,6 +25,8 @@ function App() {
 
   const [formValues, setFormValues] = useState(initalFormValues);
 
+  const [memberToEdit, setMemberToEdit] = useState('');
+
   const updateForm = (inputName, inputValue) => {
     setFormValues({...formValues, [inputName]: inputValue})
   }
@@ -40,15 +42,25 @@ function App() {
     setFormValues(initalFormValues);
   }
 
+  useEffect(() => {
+    console.log(memberToEdit);
+    setFormValues(memberToEdit);
+  }, [memberToEdit])
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>Assemble Your Team!</h1>
-        <Form update={updateForm} values={formValues} submit={submitForm} />
+        <Form update={updateForm} values={formValues} submit={submitForm} setMemberToEdit={setMemberToEdit} />
         <div className='team-members'>
           {teamMembers.map(member => {
-            return (<Member details={member} />)
+            return (
+              <div>
+              <Member details={member} setMemberToEdit={setMemberToEdit} />
+            </div>
+            )
           })}
+          
         </div>
       </header>
     </div>
