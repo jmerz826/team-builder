@@ -26,6 +26,7 @@ function App() {
   const [formValues, setFormValues] = useState(initalFormValues);
 
   const [memberToEdit, setMemberToEdit] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
 
   const updateForm = (inputName, inputValue) => {
     setFormValues({...formValues, [inputName]: inputValue})
@@ -42,8 +43,15 @@ function App() {
     setFormValues(initalFormValues);
   }
 
+  const editMember = () => {
+    // console.log(memberToEdit);
+
+    setIsEditing(false);
+    setMemberToEdit('');
+  }
+
   useEffect(() => {
-    console.log(memberToEdit);
+    // console.log(memberToEdit);
     setFormValues(memberToEdit);
   }, [memberToEdit])
 
@@ -51,12 +59,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Assemble Your Team!</h1>
-        <Form update={updateForm} values={formValues} submit={submitForm} setMemberToEdit={setMemberToEdit} />
+        <Form update={updateForm} values={formValues} submit={submitForm} setMemberToEdit={setMemberToEdit} isEditing={isEditing} editMember={ editMember}/>
         <div className='team-members'>
           {teamMembers.map(member => {
             return (
               <div>
-              <Member details={member} setMemberToEdit={setMemberToEdit} />
+              <Member details={member} setMemberToEdit={setMemberToEdit} setIsEditing={setIsEditing} />
             </div>
             )
           })}

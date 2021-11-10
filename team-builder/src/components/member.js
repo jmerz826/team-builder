@@ -27,7 +27,7 @@ const MemberDiv = styled.div`
 `
 
 const Member = (props) => {
-    const { details, setMemberToEdit } = props;
+    const { details, setMemberToEdit, setIsEditing } = props;
 
     if (!details) {
         return <h3>Assembling team members...</h3>
@@ -37,7 +37,10 @@ const Member = (props) => {
             <h2>{details.name}</h2>
             <h3>{details.role}</h3>
             <a href={`mailto:${details.email}`}>{details.email}</a>
-            <button onClick={() => setMemberToEdit(details) }>Edit</button>
+            <button onClick={() => {
+                setMemberToEdit(details);
+                setIsEditing(true);
+            }}>Edit</button>
         </MemberDiv>
     )
 }

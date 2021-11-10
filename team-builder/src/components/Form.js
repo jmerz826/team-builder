@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Form = (props) => {
-    const { values, update, submit, memberToEdit } = props;
+    const { values, update, submit, isEditing, editMember } = props;
 
     const onChange = evt => {
         const { name, value } = evt.target;
@@ -13,9 +13,14 @@ const Form = (props) => {
         submit();
     }
 
+    const onEdit = evt => {
+        evt.preventDefault();
+        editMember();
+    }
+
 
     return (
-        <form className='form-container' onSubmit={onSubmit}>
+        <form className='form-container' onSubmit={!isEditing? onSubmit: onEdit}>
             <label>Name:
                 <input
                     type='text'
@@ -44,7 +49,7 @@ const Form = (props) => {
             </label>
             <input
                 type='submit'
-                value='Add team member!'
+                value={!isEditing?'Add team member!' : 'Submit member edit'}
             />
         </form>
     )
